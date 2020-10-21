@@ -1,5 +1,4 @@
 import numpy as np
-import matplotlib.pyplot as plt
 
 R = 0.01
 u = np.loadtxt('u.dat')
