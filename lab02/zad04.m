@@ -1,4 +1,4 @@
-n = 20;
+n = 2e7;
 u = -4.2;
 sigma = 2.3;
 r = u + sigma * randn(1,n);
@@ -6,16 +6,17 @@ r = u + sigma * randn(1,n);
 u2 = mean(r);
 sigma2 = sqrt(var(r));
 
-bins_num = 10;
+bins_num = 40;
 hist = histogram(r, bins_num, 'Normalization', 'pdf');
-p = zeros(1, bins_num);
-
-for i=1:length(p)
-    p(i) = hist.Values(i);
-end
+%p = hist.Values();
 
 first_point = hist.BinEdges(1) + hist.BinWidth / 2;
 last_point = first_point + hist.BinWidth * (bins_num - 1);
+
+midBins = (first_point:hist.BinWidth:last_point);
+pn = normpdf(midBins, u2, sigma2);
+
 hold on
-plot((first_point:hist.BinWidth:last_point),p)
+%plot(midBins,p)
+plot(midBins, pn)
 hold off
