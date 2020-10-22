@@ -6,7 +6,7 @@ P = np.mean(np.abs(u)**2) / R
 print(P)
 
 step = 10
-stepU = int(u.shape[0] / 10)
+stepU = int(len(u) / 10)
 Pc = np.zeros(step)
 
 for i in range(0, step):
