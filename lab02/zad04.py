@@ -16,11 +16,6 @@ bins_num = 50
 fig, ax = plt.subplots()
 num, bins, patches = ax.hist(r, bins_num, density=True)
 
-binWidth = bins[1] - bins[0]
-firstPoint = bins[0] + binWidth / 2
-lastPoint = firstPoint + binWidth * (bins_num - 1)
-
-midBinsPoints = np.arange(firstPoint, lastPoint + binWidth, binWidth)
-ax.plot(midBinsPoints, stats.norm.pdf(midBinsPoints, u2, sigma2))
+ax.plot(bins, stats.norm.pdf(bins, u2, sigma2))
 
 plt.show()
