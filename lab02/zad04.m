@@ -9,8 +9,9 @@ sigma2 = sqrt(var(r));
 bins_num = 40;
 hist = histogram(r, bins_num, 'Normalization', 'pdf');
 
-pn = normpdf(hist.BinEdges(), u2, sigma2);
+x = hist.BinEdges(1):0.1:hist.BinEdges(end);
+pn = normpdf(x, u2, sigma2);
 
 hold on
-plot(hist.BinEdges(), pn)
+plot(x, pn)
 hold off
