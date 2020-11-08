@@ -16,6 +16,7 @@ bins_num = 50
 fig, ax = plt.subplots()
 num, bins, patches = ax.hist(r, bins_num, density=True)
 
-ax.plot(bins, stats.norm.pdf(bins, u2, sigma2))
+x = np.arange(bins[0], bins[-1], 0.1)
+ax.plot(x, stats.norm.pdf(x, u2, sigma2))
 
 plt.show()
