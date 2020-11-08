@@ -5,12 +5,10 @@ u = np.loadtxt('u.dat')
 P = np.mean(np.abs(u)**2) / R
 print(P)
 
-step = 10
-stepU = int(len(u) / 10)
-Pc = np.zeros(step)
+l10 = int(len(u) / 10)
+Pc = np.zeros(len(u) - l10)
 
-for i in range(0, step):
-    Pc[i] = np.mean(np.abs(u[(i * stepU):((i + 1) * stepU)])**2) / R
+for i in range(0, len(Pc)):
+    Pc[i] = np.mean(np.abs(u[i:i+l10]**2)) / R
 
-print(Pc)
-print(np.mean(Pc))
+print(np.max(Pc))
